@@ -1,0 +1,15 @@
+name: Sync
+on:
+  schedule:
+    #- cron: '20 03 * * *'
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Sync
+      uses: repo-sync/github-sync@v2
+      with:
+        source_repo: 'https://github.com/cf-pages/Telegraph-Image'
+        target_repo: 'https://github.com/jmmes/Telegraph-Image'
+        github_token: ${{ secrets.GITHUB_TOKEN }} 
+        source_branch: 'master'
